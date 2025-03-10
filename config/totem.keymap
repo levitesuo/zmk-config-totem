@@ -123,10 +123,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-        &kp EXCL     &kp AT           &kp RA(NUMBER_5)  &kp HASH  &kp DOLLAR    &kp PERCENT   &kp AMPS        &kp RA(U)   &kp GRAVE   &kp NUBS
-        &kp RA(Q)    &trans           &trans            &trans    &trans        &kp C_MUTE    &kp LS(RA(N4))  &kp RA(N5)  &kp RA(N4)  &kp RA(P)
-&trans  &kp RA(F18)  &kp RA(LS(F19))  &trans            &trans    &trans        &kp C_VOL_DN  &kp C_VOL_UP    &kp C_PREV  &kp C_NEXT  &kp BSLH   &trans
-                                      &trans            &mo 3     &trans        &trans        &kp C_PP        &trans
+       &kp EXCL   &kp AT  &kp RA(NUMBER_5)  &kp HASH  &kp DOLLAR    &kp PERCENT   &kp AMPS        &kp RA(U)   &kp GRAVE   &kp NUBS
+       &kp RA(Q)  &none   &none             &none     &none         &kp C_MUTE    &kp LS(RA(N4))  &kp RA(N5)  &kp RA(N4)  &kp RA(P)
+&none  &none      &none   &none             &none     &none         &kp C_VOL_DN  &kp C_VOL_UP    &kp C_PREV  &kp C_NEXT  &kp BSLH   &trans
+                          &trans            &mo 3     &trans        &trans        &kp C_PP        &trans
             >;
         };
 
