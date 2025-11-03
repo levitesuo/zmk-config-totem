@@ -1,5 +1,27 @@
-on: [push, pull_request, workflow_dispatch]
+name: 'Build TOTEM Firmware'
+
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      # Add this one line:
+      settings-reset-build:
+        description: 'Build settings-reset firmware?'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    permissions:
+      contents: write
+    with:
+      # Pass the new input to the ZMK build workflow
+      settings-reset-build: ${{ inputs.settings-reset-build || false }}
+      # Your 'include' list remains unchanged
+      include:
+        - board: seeeduino_xiao_ble
+          shield: totem_left
+        - board: seeeduino_xiao_ble
+          shield: totem_right
