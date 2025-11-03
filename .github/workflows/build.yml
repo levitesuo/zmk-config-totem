@@ -1,21 +1,5 @@
-name: 'Build TOTEM Firmware'
-
-on:
-  push:
-  workflow_dispatch:
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-    permissions:
-      contents: write
-    with:
-      # This is the single, correct input for the build workflow
-      build-matrix: |
-        - board: seeeduino_xiao_ble
-          shield: totem_left
-        - board: seeeduino_xiao_ble
-          shield: totem_right
-        # Add this line to build the settings_reset firmware
-        - board: seeeduino_xiao_ble
-          shield: settings_reset
