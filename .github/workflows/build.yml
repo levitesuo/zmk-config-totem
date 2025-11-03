@@ -3,12 +3,6 @@ name: 'Build TOTEM Firmware'
 on:
   push:
   workflow_dispatch:
-    inputs:
-      settings-reset-build:
-        description: 'Build settings-reset firmware?'
-        required: false
-        type: boolean
-        default: false
 
 jobs:
   build:
@@ -16,12 +10,12 @@ jobs:
     permissions:
       contents: write
     with:
-      settings-reset-build: ${{ inputs.settings-reset-build || false }}
-
-      # This is the corrected block:
-      # We add a pipe '|' after 'include:' and indent the list.
-      include: |
+      # This is the single, correct input for the build workflow
+      build-matrix: |
         - board: seeeduino_xiao_ble
           shield: totem_left
         - board: seeeduino_xiao_ble
           shield: totem_right
+        # Add this line to build the settings_reset firmware
+        - board: seeeduino_xiao_ble
+          shield: settings_reset
