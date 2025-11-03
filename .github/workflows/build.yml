@@ -4,7 +4,6 @@ on:
   push:
   workflow_dispatch:
     inputs:
-      # Add this one line:
       settings-reset-build:
         description: 'Build settings-reset firmware?'
         required: false
@@ -17,10 +16,11 @@ jobs:
     permissions:
       contents: write
     with:
-      # Pass the new input to the ZMK build workflow
       settings-reset-build: ${{ inputs.settings-reset-build || false }}
-      # Your 'include' list remains unchanged
-      include:
+
+      # This is the corrected block:
+      # We add a pipe '|' after 'include:' and indent the list.
+      include: |
         - board: seeeduino_xiao_ble
           shield: totem_left
         - board: seeeduino_xiao_ble
